@@ -102,6 +102,10 @@ app.use(
     express.static(path.join(process.cwd(), "node_modules/bootstrap/dist"))
 );
 
+app.get("/", (req, res) => {
+    res.render("listing/index.ejs");
+});
+
 //Router routes
 app.use("/listings", listingRoute);
 app.use("/listings/:id/reviews", reviewRoute);
