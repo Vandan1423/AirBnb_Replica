@@ -103,7 +103,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-    res.render("listing/index.ejs");
+    res.redirect("/listings");
 });
 
 //Router routes
