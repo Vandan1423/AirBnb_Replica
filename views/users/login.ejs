@@ -1,0 +1,45 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row mt-4 new-listing-form-grid">
+        <h2>Login on AirBnb_Replica</h2>
+        <form action="/login" method="post" novalidate class="needs-validation">
+            <div class="mb-2">
+                <label for="username" class="form-label">Username</label>
+                <input
+                    type="text"
+                    name="username"
+                    id="usernmae"
+                    class="form-control"
+                    required
+                />
+                <div class="invalid-feedback">Username already taken</div>
+            </div>
+
+            <div class="mb-2">
+                <label for="password" class="form-label">Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    class="form-control"
+                    required
+                />
+                <div class="invalid-feedback">Please use a strong password</div>
+            </div>
+
+            <div class="row">
+                <button
+                    type="submit"
+                    class="btn btn-secondary rounded-5 submit-btn"
+                >
+                    Login
+                </button>
+            </div>
+            <div class="row">
+                <a href="/signup" class="link-secondary"
+                    >Didn't have an account, Signup</a
+                >
+            </div>
+        </form>
+    </div>
+</body>

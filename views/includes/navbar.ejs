@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-md bg-white sticky-top">
+    <div class="container-fluid nav-container d-flex flex-column">
+        <div class="upper-nav d-flex justify-content-between align-items-center pb-3 pt-1 w-100">
+            <a class="navbar-brand d-flex align-items-center" href="/listings">
+                <i class="fa-solid fa-compass"></i>
+                <span class="brand-text ms-2">airbnb</span>
+            </a>
+            <form class="d-flex search-bar" role="search" action="/listings/search" method="get">
+                <input class="form-control me-2 search-input" type="search" aria-label="Search"
+                    placeholder="Search for places" name="searchRes" />
+                <button class="btn search-btn" type="submit">
+                    <i class="fa-solid fa-search"></i>
+                </button>
+            </form>
+            <div class="d-flex align-items-center right-menu">
+                <a class="nav-link me-3" href="/listings/new">Add new Listing</a>
+                <% if (currUser) { %>
+                    <div class="menu-user dropdown">
+                        <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="userMenu"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bars me-2"></i>
+                            <i class="fa-solid fa-user"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                            <li class="dropdown-item">
+                                <strong>
+                                    <%= currUser.username %>
+                                </strong>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/logout" style="color: red">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <% } else { %>
+
+                        <div class="d-flex align-items-center">
+                            <a href="/login" class="btn btn-outline-success me-2">Login</a>
+                            <a href="/signup" class="btn btn-outline-success">Sign up</a>
+                        </div>
+                        <% } %>
+            </div>
+        </div>
+
+        <% if( currPath==="/listings" ){ %>
+            <div class="horizontal-line">
+                <hr />
+            </div>
+            <div class="lower-nav-container position-relative w-100">
+                <button class="scroll-btn left" id="scrollLeft">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="lower-nav d-flex align-items-center" id="categoryNav">
+                    <% for (let category of allCategories) { %>
+                        <a href="<%= category.name === 'All' ? '/listings' : '/listings?category=' + encodeURIComponent(category.name) %>"
+                            class="category-links">
+                            <div
+                                class="category-filter-icon <%= (selectedCategory === category.name || (!selectedCategory && category.name === 'All')) ? 'active' : '' %>">
+                                <p class="category-filter-icon">
+                                    <%= category.icon %>
+                                </p>
+                                <p>
+                                    <%= category.name %>
+                                </p>
+                            </div>
+                        </a>
+                        <% } %>
+                </div>
+
+                <button class="scroll-btn right" id="scrollRight">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            <% } %>
+    </div>
+</nav>
+<script src="/js/navbarScript.js"></script>

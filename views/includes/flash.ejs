@@ -1,0 +1,68 @@
+<% if (flash && flash.message && flash.type==="success") { %>
+<div
+    class="flash-message position-fixed end-0 p-3"
+    style="top: 70px; z-index: 1055"
+>
+    <div
+        id="flashToastSuccess"
+        class="toast align-items-center text-bg-success border-0 shadow-lg"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+    >
+        <div class="d-flex">
+            <div class="toast-body"><%= flash.message %></div>
+            <button
+                type="button"
+                class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+            ></button>
+        </div>
+    </div>
+</div>
+<% } %> <% if (flash && flash.message && flash.type==="error") { %>
+<div
+    class="flash-message position-fixed end-0 p-3"
+    style="top: 70px; z-index: 1055"
+>
+    <div
+        id="flashToastSuccess"
+        class="toast align-items-center text-bg-danger border-0 shadow-lg"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+    >
+        <div class="d-flex">
+            <div class="toast-body"><%= flash.message %></div>
+            <button
+                type="button"
+                class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+            ></button>
+        </div>
+    </div>
+</div>
+<% } %> <% //For only passport flash messages for but other we use our custom
+flash %> <% if (success && success.length > 0) { %>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= success[0] %>
+    <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+    ></button>
+</div>
+<% } %> <% if (error && error.length > 0) { %>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= error[0] %>
+    <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+    ></button>
+</div>
+<% } %>

@@ -1,0 +1,372 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/* Navbar */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.brand-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fe424d;
+}
+
+/* Search bar */
+.search-bar {
+    border: 1px solid #dddddd;
+    border-radius: 30px;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease;
+    width: 400px;
+}
+
+.search-bar:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    flex: 1;
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 50%;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 0;
+}
+
+.search-btn:hover {
+    background-color: #e03842;
+}
+
+/* Right menu */
+.right-menu {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #222222;
+}
+
+.menu-user {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.menu-user .btn {
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 0.4rem 0.8rem;
+}
+
+.menu-user .btn:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu {
+    font-size: 0.9rem;
+}
+
+/* Category icons */
+.category-filter-icon {
+    opacity: 0.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-right: 2rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.category-filter-icon:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.category-filter-icon p {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.category-filter-icon:hover p {
+    text-decoration: underline;
+}
+
+.category-links {
+    text-decoration: none;
+    color: black;
+}
+
+/* Lower nav */
+.lower-nav-container {
+    position: relative;
+    width: 100%;
+    padding-left: 60px;
+    padding-right: 30px;
+}
+
+.lower-nav {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    scroll-behavior: smooth; /* smooth scrolling */
+    position: relative;
+    z-index: 1; /* content below arrows */
+}
+
+.lower-nav::-webkit-scrollbar {
+    display: none;
+}
+
+/* Scroll buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20; /* ensure above nav */
+}
+
+.scroll-btn.left {
+    left: 0;
+}
+
+.scroll-btn.right {
+    right: 0;
+}
+
+.scroll-btn i {
+    font-size: 0.9rem;
+}
+.horizontal-line {
+    width: 100%;
+    height: 1px;
+    background-color: #e5e5e5;
+    margin-bottom: 10px;
+}
+
+.horizontal-line hr {
+    margin: 0;
+    border: none;
+    border-top: 1px solid #e5e5e5;
+}
+
+.fa-brands {
+    color: black;
+}
+.footer {
+    height: 8rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    background-color: #ebebeb;
+}
+.f-socials {
+    gap: 10px;
+}
+.f-socials a {
+    font-size: 20px;
+}
+.f-socials a:hover {
+    transform: rotate(-10deg) scale(1.1) translateY(-2px);
+    border-radius: 50%;
+}
+.f-info-links {
+    gap: 10px;
+}
+.f-info-links a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+}
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+.spacing-dot {
+    font-size: small;
+}
+.container {
+    max-width: 100%;
+    height: 100%;
+}
+.card-container {
+    width: 100%;
+    gap: 20px;
+    max-width: 1600px;
+}
+.listing-card-link {
+    text-decoration: none;
+}
+.card {
+    border: none;
+}
+.card-img-top {
+    height: 200px;
+    border-radius: 20px;
+}
+.card-body {
+    padding: 5px;
+}
+.card-text {
+    margin: 0;
+}
+.card-img-overlay {
+    opacity: 0;
+}
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+.new-listing-form-grid {
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.submit-btn {
+    margin: 10px auto;
+    background-color: #fe424d;
+    border: none;
+}
+
+/* Minimal Review Card Styling */
+.review-card {
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+.review-card:hover {
+    box-shadow: 0 0 3px #fe424d;
+}
+
+.review-card .card-body {
+    padding: 1rem;
+}
+
+.review-card .card-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.review-username {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.delete-icon {
+    background: none;
+    border: none;
+    color: #fe424d;
+    cursor: pointer;
+    font-size: 0.85rem;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+.delete-icon:hover {
+    color: #e03842;
+    transform: scale(1.2) rotate(-10deg);
+}
+
+.review-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.review-text.collapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.show-more-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    padding: 0;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 0.25rem;
+}
+
+.show-more-btn:hover {
+    color: #0056b3;
+}
+
+/* Star Rating */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    font-size: 2em;
+    color: #d4d4d4;
+    cursor: pointer;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating label {
+    transition: color 0.2s;
+}
+.star-rating input:checked ~ label,
+.star-rating:not(:checked) > label:hover,
+.star-rating:not(:checked) > label:hover ~ label {
+    color: #ffc107;
+}
+.starability-result {
+    font-size: 1rem;
+    color: #ffc107;
+    margin-bottom: 0.5rem;
+}
+.starability-result::before {
+    content: "★★★★★";
+    letter-spacing: 1px;
+    background: linear-gradient(
+        90deg,
+        #ffc107 var(--rating),
+        #d4d4d4 var(--rating)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.active {
+    opacity: 1;
+    scale: 1.03;
+    rotate: 1deg;
+    text-decoration: underline;
+}
+.active .category-filter-icon {
+    transform: rotate(20deg);
+}

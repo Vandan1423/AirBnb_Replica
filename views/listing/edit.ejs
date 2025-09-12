@@ -1,0 +1,108 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row mt-4 new-listing-form-grid">
+        <h2>Edit Listing</h2>
+        <form
+            action="/listings/<%= listing._id %>?_method=PUT"
+            method="post"
+            novalidate
+            class="needs-validation"
+            enctype="multipart/form-data"
+        >
+            <div class="row">
+                <div mb-2>
+                    <label for="title" class="form-label">Title</label>
+                    <input
+                        class="form-control"
+                        type="text"
+                        name="listing[title]"
+                        required
+                        value="<%= listing.title %>"
+                        id="title"
+                    />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-2">
+                    <label for="description" class="form-label"
+                        >Description</label
+                    >
+                    <textarea
+                        class="form-control"
+                        id="description"
+                        type="text"
+                        name="listing[description]"
+                        required
+                    >
+<%= listing.description %></textarea
+                    >
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-2">
+                    <label for="image" class="form-label"
+                        >Upload Listing Image</label
+                    >
+                    <input
+                        class="form-control"
+                        type="file"
+                        id="image"
+                        name="listing[image]"
+                        value="<%= listing.image %>"
+                    />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-2 col-md-6">
+                    <label for="price" class="form-label"
+                        >Price (per night)</label
+                    >
+                    <input
+                        class="form-control"
+                        id="price"
+                        type="number"
+                        name="listing[price]"
+                        required
+                        value="<%=
+                    listing.price%>"
+                    />
+                </div>
+                <div class="mb-2 col-md-6">
+                    <label for="country" class="form-label">Country</label>
+                    <input
+                        class="form-control"
+                        id="country"
+                        type="text"
+                        name="listing[country]"
+                        required
+                        value="<%= listing.country %>"
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-2">
+                    <label for="location" class="form-label">Location</label>
+                    <input
+                        class="form-control"
+                        id="location"
+                        type="text"
+                        name="listing[location]"
+                        required
+                        value="<%= listing.location %>"
+                    />
+                </div>
+            </div>
+            <div class="row">
+                <button
+                    type="submit"
+                    class="btn btn-secondary rounded-5 submit-btn"
+                >
+                    Update Listing
+                </button>
+            </div>
+        </form>
+    </div>
+</body>

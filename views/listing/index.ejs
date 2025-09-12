@@ -1,0 +1,26 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div
+        class="card-container d-flex flex-wrap justify-content-center align-items-center mt-4"
+    >
+        <% for(let item of allListings) { %>
+        <a href="/listings/<%= item._id %>" class="listing-card-link">
+            <div class="card" style="width: 24rem">
+                <img
+                    src="<%= item.image.url %>"
+                    class="card-img-top"
+                    alt="..."
+                />
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                    <p class="card-text"><b><%= item.title %></b></p>
+                    <p class="card-text">
+                        &#8377; <%= item.price.toLocaleString("en-IN") %> /
+                        night
+                    </p>
+                </div>
+            </div>
+        </a>
+        <% } %>
+    </div>
+</body>

@@ -1,0 +1,103 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="loader-overlay" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="row mt-4 new-listing-form-grid">
+        <h2>Add New Listing</h2>
+        <form id="new-listing-form" action="/listings" method="post" novalidate class="needs-validation"
+            enctype="multipart/form-data">
+            <div class="mb-2">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="listing[title]" id="title" class="form-control" required minlength="5"
+                    maxlength="100" pattern="^[a-zA-Z0-9\s.,'-]{5,100}$" />
+                <div class="invalid-feedback">
+                    Title must be 5–100 characters and cannot contain special
+                    symbols.
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="listing[description]" id="description" class="form-control" required minlength="20"
+                    maxlength="500"></textarea>
+                <div class="invalid-feedback">
+                    Please enter a description between 20 and 500 characters.
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <label for="image" class="form-label">Upload Listing Image</label>
+                <input type="file" name="listing[image]" id="image" class="form-control" required />
+                <div class="invalid-feedback">Upload valid image</div>
+            </div>
+
+            <!-- Categories Field -->
+            <div class="mb-2">
+                <label class="form-label">Categories</label>
+                <div class="categories-grid" style="
+                    max-height: 200px;
+                    overflow-y: auto;
+                    border: 1px solid #ced4da;
+                    padding: 10px;
+                    border-radius: 4px;
+                ">
+                    <% if (typeof allCategories !=='undefined' ) { %>
+                        <% allCategories.forEach(category=> { %> <% if (category.name !=="All" ) { %>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="listing[categories]"
+                                        value="<%= category.name %>"
+                                        id="category-<%= category.name.replace(/\s+/g, '-').toLowerCase() %>" />
+                                    <label class="form-check-label"
+                                        for="category-<%= category.name.replace(/\s+/g, '-').toLowerCase() %>">
+                                        <%= category.icon %>
+                                            <%= category.name %>
+                                    </label>
+                                </div>
+                                <% } %>
+                                    <% }) %>
+                                        <% } %>
+                </div>
+                <div class="invalid-feedback">
+                    Please select at least one category.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-2 col-md-6">
+                    <label for="price" class="form-label">Price (per night)</label>
+                    <input type="number" name="listing[price]" id="price" class="form-control" required min="50"
+                        max="10000" step="0.01" />
+                    <div class="invalid-feedback">
+                        Price must be between 50 and 10,000.
+                    </div>
+                </div>
+                <div class="mb-2 col-md-6">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" name="listing[country]" id="country" class="form-control" required minlength="2"
+                        maxlength="50" pattern="^[A-Za-z\s]{2,50}$" />
+                    <div class="invalid-feedback">
+                        Country name must be 2–50 characters and contain only
+                        letters.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" name="listing[location]" id="location" class="form-control" required minlength="2"
+                    maxlength="100" pattern="^[a-zA-Z0-9\s,.-]{2,100}$" />
+                <div class="invalid-feedback">
+                    Location must be 2–100 characters and contain only letters,
+                    numbers, commas, or dashes.
+                </div>
+            </div>
+
+            <div class="row">
+                <button type="submit" class="btn btn-secondary rounded-5 submit-btn">
+                    Add Listing
+                </button>
+            </div>
+        </form>
+    </div>
