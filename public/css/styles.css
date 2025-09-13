@@ -370,3 +370,87 @@
 .active .category-filter-icon {
     transform: rotate(20deg);
 }
+
+/* ========================== */
+/* Responsive Navbar Styles */
+/* ========================== */
+
+/* For Tablets and smaller devices (less than 992px) */
+@media (max-width: 991.98px) {
+    .search-bar {
+        width: 320px; /* Reduce search bar width */
+    }
+
+    .right-menu a.nav-link {
+        font-size: 0.85rem; /* Slightly smaller font for "Add Listing" */
+    }
+}
+
+/* For Small Tablets and large phones (less than 768px) */
+@media (max-width: 767.98px) {
+    .nav-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .upper-nav {
+        flex-wrap: wrap; /* Allow items to wrap onto a new line */
+        justify-content: space-between; /* Keeps logo left and right-menu right */
+    }
+
+    .navbar-brand {
+        order: 1; /* First item */
+    }
+
+    .right-menu {
+        order: 2; /* Second item, will stay on the first line */
+    }
+
+    .search-bar {
+        order: 3; /* Third item, will wrap to the second line */
+        width: 100%; /* Take up the full width */
+        margin-top: 0.75rem; /* Add some space above */
+    }
+
+    /* Hide the "Add new Listing" text to save space */
+    .right-menu > .nav-link {
+        display: none;
+    }
+
+    .lower-nav-container {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+/* For most Mobile phones (less than 576px) */
+@media (max-width: 575.98px) {
+    /* Hide the brand text to save space, keeping only the icon */
+    .brand-text {
+        display: none;
+    }
+
+    /* Make the Login/Signup buttons smaller */
+    .right-menu .btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+
+    /* Adjust category filter container for narrow screens */
+    .lower-nav-container {
+        padding-left: 45px;
+        padding-right: 45px;
+    }
+
+    .scroll-btn.left {
+        left: 5px; /* Move scroll button closer to the edge */
+    }
+
+    .scroll-btn.right {
+        right: 5px; /* Move scroll button closer to the edge */
+    }
+
+    .category-filter-icon {
+        margin-right: 1.5rem; /* Reduce space between category icons */
+    }
+}
