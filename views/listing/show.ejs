@@ -11,7 +11,9 @@
                 />
 
                 <div class="card-body">
-                    <h3 class="card-title mb-3"><b><%= listing.title %></b></h3>
+                    <h3 class="card-title mb-3">
+                        <b> <%= listing.title %> </b>
+                    </h3>
                     <p class="card-text fs-5 text-muted">
                         Owner : @<%= listing.owner.username %>
                     </p>
@@ -25,10 +27,12 @@
                             listing.price.toLocaleString("en-IN") %> / night
                         </p>
                         <p class="card-text mb-2">
-                            <b>Location:</b> <%= listing.location %>
+                            <b>Location:</b>
+                            <%= listing.location %>
                         </p>
                         <p class="card-text">
-                            <b>Country:</b> <%= listing.country %>
+                            <b>Country:</b>
+                            <%= listing.country %>
                         </p>
                     </div>
 
@@ -128,7 +132,7 @@
                 <% }%>
                 <h4>All Reviews</h4>
 
-                <% if(listing.reviews && listing.reviews.length > 0) { %> <%
+                <% if(listing.reviews && listing.reviews.length> 0) { %> <%
                 for(review of listing.reviews){ %>
                 <div class="card review-card">
                     <div class="card-body">
@@ -163,7 +167,7 @@
                         >
                             <%= review.comment %>
                         </p>
-                        <% if(review.comment.length > 150) { %>
+                        <% if(review.comment.length> 150) { %>
                         <button
                             class="show-more-btn"
                             onclick="toggleReview('<%= review._id %>')"
