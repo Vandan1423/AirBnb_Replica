@@ -23,15 +23,32 @@ module.exports.index = async (req, res) => {
 };
 
 module.exports.renderNewForm = (req, res) => {
-    res.render("listing/new.ejs", { allCategories });
+    res.render("listing/new.ejs", { allCategories, selectedCategory: null });
 };
 
 module.exports.postNewListing = async (req, res) => {
+    if (!req.file) {
+        req.session.flash = { type: "error", message: "Please upload an image" };
+        return res.redirect("/listings/new");
+    }
+
     let url = req.file.path;
     let filename = req.file.filename;
     const newListing = new Listing(req.body.listing);
     newListing.owner = req.user._id;
     newListing.image = { url, filename };
+
+    // Handle categories - ensure it's an array
+    if (req.body.listing.categories) {
+        if (typeof req.body.listing.categories === 'string') {
+            newListing.categories = [req.body.listing.categories];
+        } else {
+            newListing.categories = req.body.listing.categories;
+        }
+    } else {
+        newListing.categories = ["Others"];
+    }
+
     await newListing.save();
     req.session.flash = { type: "success", message: "New listing added" };
     res.redirect("/listings");
@@ -47,7 +64,7 @@ module.exports.showListing = async (req, res) => {
             },
         })
         .populate("owner");
-    
+
     if (!listing) {
         req.session.flash = {
             type: "error",
@@ -55,14 +72,14 @@ module.exports.showListing = async (req, res) => {
         };
         return res.redirect("/listings");
     }
-    
-    res.render("listing/show.ejs", { listing });
+
+    res.render("listing/show.ejs", { listing, allCategories, selectedCategory: null });
 };
 
 module.exports.editListingForm = async (req, res) => {
     let { id } = req.params;
     let listing = await Listing.findById(id);
-    res.render("listing/edit.ejs", { listing });
+    res.render("listing/edit.ejs", { listing, allCategories, selectedCategory: null });
 };
 
 module.exports.editListing = async (req, res) => {

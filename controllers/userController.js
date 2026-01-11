@@ -1,7 +1,8 @@
 const User = require("../models/users");
+const { allCategories } = require("../categoryData");
 
 module.exports.getSignupForm = (req, res) => {
-    res.render("users/signup.ejs");
+    res.render("users/signup.ejs", { allCategories, selectedCategory: null });
 };
 
 module.exports.postSignup = async (req, res, next) => {
@@ -30,7 +31,7 @@ module.exports.postSignup = async (req, res, next) => {
 };
 
 module.exports.getLoginForm = (req, res) => {
-    res.render("users/login.ejs");
+    res.render("users/login.ejs", { allCategories, selectedCategory: null });
 };
 
 module.exports.postLogin = async (req, res) => {

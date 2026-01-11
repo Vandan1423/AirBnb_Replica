@@ -28,5 +28,6 @@ module.exports.searchResults = async (req, res) => {
     res.render("listing/index.ejs", {
         allListings,
         allCategories,
+        selectedCategory: null,
     });
 };

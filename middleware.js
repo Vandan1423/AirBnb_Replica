@@ -38,13 +38,16 @@ module.exports.isOwner = async (req, res, next) => {
 
 //Middleware for handling the validations
 module.exports.validateListing = (req, res, next) => {
+    console.log("Validating listing with body:", req.body);
     let { error } = listingSchema.validate(req.body);
     if (error) {
+        console.log("Validation error:", error.details);
         throw new ExpressError(
-            404,
+            400,
             error.details.map((el) => el.message).join(",")
         );
     } else {
+        console.log("Validation passed");
         next();
     }
 };

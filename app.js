@@ -18,6 +18,7 @@ const serverless = require("serverless-http"); // For serverless deployment
 
 const ExpressError = require("./utils/ExpressError");
 const User = require("./models/users");
+const { allCategories } = require("./categoryData");
 
 // Route Imports
 const reviewRoute = require("./routes/reviewRoute");
@@ -136,7 +137,7 @@ app.use((err, req, res, next) => {
   }
 
   const { statusCode = 500 } = err;
-  res.status(statusCode).render("error.ejs", { err });
+  res.status(statusCode).render("error.ejs", { err, allCategories, selectedCategory: null });
 });
 
 // --- Export / Listen logic ---
