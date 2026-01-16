@@ -15,6 +15,21 @@
         <link rel="stylesheet" href="/css/styles.css" />
     </head>
     <body>
+        <!-- Loading Screen -->
+        <div id="loader-wrapper">
+            <div class="loader-content">
+                <div class="loader-logo">
+                    <i class="fa-brands fa-airbnb"></i>
+                </div>
+                <div class="loader-spinner">
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                    <div class="spinner-ring"></div>
+                </div>
+                <p class="loader-text">Loading your experience...</p>
+            </div>
+        </div>
+        
         <div class="page d-flex flex-column min-vh-100">
             <%- include("../includes/navbar.ejs") %>
             <div
@@ -26,5 +41,15 @@
         </div>
         <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="/js/script.js"></script>
+        <script>
+            // Hide loader when page is fully loaded
+            window.addEventListener('load', function() {
+                const loader = document.getElementById('loader-wrapper');
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            });
+        </script>
     </body>
 </html>
